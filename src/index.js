@@ -95,6 +95,18 @@ class Trasher extends Dog {
     }
 }
 
+class PseudoDuck extends Dog {
+    constructor(name = 'Pseudo Duck', power = 3) {
+        super();
+    }
+    quacks() { console.log('quack') };
+    swims() { console.log('float: both;') };
+
+    getDescriptions() {
+        return ['утка-собака', getCreatureDescription(this)];
+    }
+}
+
 
 // Колода Шерифа, нижнего игрока.
 const seriffStartDeck = [
