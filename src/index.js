@@ -30,7 +30,7 @@ function getCreatureDescription(card) {
 
 
 // Основа для утки.
-class Duck extends Card() {
+class Duck extends Card {
     constructor(name = 'Мирная утка', power = 2) {
         super();
         this.name = name;
@@ -42,7 +42,7 @@ class Duck extends Card() {
 
 
 // Основа для собаки.
-class Dog extends Card() {
+class Dog extends Card {
     constructor(name = 'Пес-бандит', power = 3) {
         super();
         this.name = name;
