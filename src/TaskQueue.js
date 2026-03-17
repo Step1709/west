@@ -49,4 +49,5 @@ export default class TaskQueue{
     continueWith(action) {
         this.push(action, null, 0);
     };
+
 };
