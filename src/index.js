@@ -9,7 +9,7 @@ class Creature extends Card {
     }
 
     getDescriptions() {
-        return [getCreatureDescription(), ...super.getDescriptions()];
+        return [getCreatureDescription(this), ...super.getDescriptions()];
     }
 }
 
@@ -60,6 +60,25 @@ class Dog extends Creature {
     }
 }
 
+class Gatling extends Creature {
+    constructor(name = 'Гатлинг', power = 6) {
+        super();
+        this.name = name;
+        this.power = power;
+    }
+
+    attack(gameContext) {
+        const enemyCards = gameContext.oppositePlayer.table;
+
+        enemyCards.forEach(card => {
+            gameContext.taskQueue.addTask(() => {
+                if (card) {
+                    card.takeDamage(this.power, gameContext);
+                }
+            });
+        });
+    }
+}
 
 class Trasher extends Dog {
     constructor(name = 'Громила', power = 5) {
@@ -82,11 +101,13 @@ const seriffStartDeck = [
     new Duck(),
     new Duck(),
     new Duck(),
+    new Gatling(),
 ];
 const banditStartDeck = [
+    new Trasher(),
+    new Dog(),
     new Dog(),
 ];
-
 
 // Создание игры.
 const game = new Game(seriffStartDeck, banditStartDeck);
