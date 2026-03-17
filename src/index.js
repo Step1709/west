@@ -61,6 +61,22 @@ class Dog extends Creature {
 }
 
 
+class Trasher extends Dog {
+    constructor(name = 'Громила', power = 5) {
+        super(name, power);
+    }
+
+    modifyTakenDamage(damage) {
+        this.view.signalAbility(() => {});
+        return Math.max(0, damage - 1);
+    }
+
+    getDescriptions() {
+        return ['Получает на 1 меньше урона', ...super.getDescriptions()];
+    }
+}
+
+
 // Колода Шерифа, нижнего игрока.
 const seriffStartDeck = [
     new Duck(),
