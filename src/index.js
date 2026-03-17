@@ -105,6 +105,7 @@ class PseudoDuck extends Dog {
     getDescriptions() {
         return ['утка-собака', getCreatureDescription(this)];
     }
+
 }
 
 
