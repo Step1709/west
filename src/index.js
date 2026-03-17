@@ -30,14 +30,24 @@ function getCreatureDescription(card) {
 
 
 // Основа для утки.
-function Duck() {
-    this.quacks = function () { console.log('quack') };
-    this.swims = function () { console.log('float: both;') };
+class Duck extends Card() {
+    constructor(name = 'Мирная утка', power = 2) {
+        super();
+        this.name = name;
+        this.power = power;
+    }
+    quacks() { console.log('quack') };
+    swims() { console.log('float: both;') };
 }
 
 
 // Основа для собаки.
-function Dog() {
+class Dog extends Card() {
+    constructor(name = 'Пес-бандит', power = 3) {
+        super();
+        this.name = name;
+        this.power = power;
+    }
 }
 
 
